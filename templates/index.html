@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <form action="{{ url_for('predict')}}" method="post">
+            <h2>Car Price Prediction</h2><br>
+            <div class="form">
+            <div class="a">
+            <div>
+                <label for="company" class="company">Company</label>
+                <select id="company" name="company" type="text" required="required">
+                </select>
+                <h6>The brand of the car.</h6>
+            </div>
+            
+            <div>
+                <label for="model" class="model">Model</label>
+                <select id="model" name="model" type="text" required="required">
+                    
+                </select>
+                <h6>The model of the car.</h6>
+            </div>
+            <div>
+                <label for="location" class="location">Location</label>
+
+                <select id="location" name="location" type="text" required="required">
+                </select>
+                <h6>The location in which the car is being sold or is
+                    available for purchase.</h6>
+            </div>
+            <div>
+                <label for="year" class="year">Year</label>
+
+                <input id="year" name="year" type="number" required="required">
+                <h6>The year or edition of the model.</h6>
+            </div>
+            <div>
+                <label for="Kilometers" class="Kilometers">Kilometers_Driven</label>
+
+                <input id="Kilometers" name="Kilometers" type="number " required="required">
+                <h6>The total kilometres driven in the car by the previous
+                    owner(s) in KM.</h6>
+            </div>  
+            <div>
+                <label for="fuel_type" class="fuel">Fuel_Type</label>
+
+                <select id="fuel_type" name="fuel" type="text" required="required">
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Diesel">CNG</option>
+                    <option value="Diesel">LPG</option>
+                </select>
+                <h6>The type of fuel used by the car. (Petrol /
+                    Diesel / Electric / CNG / LPG)</h6>
+                </div>
+            </div>
+            <div class="b">
+                    <div>
+                <label for="Transmission" class="Transmission">Transmission</label>
+
+                <select id="Transmission" name="Transmission" type="text" required="required">
+                    <option value="Manual">Manual Car</option>
+                    <option value="Automatic">Automatic Car</option>
+                </select>
+                <h6>The type of transmission used by the car.
+                    (Automatic / Manual)</h6>
+            </div>
+            <div>
+                <label for="Owner" class="Owner">Owner_Type</label>
+
+                <select id="Owner" name="Owner" required="required">
+                    <option value="0">First</option>
+                    <option value="1">Second</option>
+                    <option value="2">Third</option>
+                    <option value="3">Fourth & Above</option>
+                </select>
+                <h6>Whether the ownership is Firsthand, Second hand
+                    or other.</h6>
+            </div>
+            <div>
+                <label for="seats" class="seats">Seats</label>
+
+                <select id="seats" name="seats" required="required">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <h6>The number of seats in the car.</h6>
+            </div>
+            
+            <div>
+                <label for="mileage" class="mileage">Mileage</label>
+
+                <input id="mileage" name="mileage" type="number " required="required">
+                <h6>The standard mileage offered by
+                    the car company in kmpl or km/kg</h6>
+            </div>
+            <div>
+                <label for="engine" class="engine">Engine</label>
+
+                <input id="engine" name="engine" type="number " required="required">
+                <h6>The displacement volume of the
+                    engine in cc.</h6>
+            </div>
+            <div> <label for="power" class="power">Power</label>
+
+                <input id="power" name="power" type="number " required="required">
+                <h6>The maximum power of the engine
+                    in bhp.</h6>
+            </div>
+        </div>
+            
+            </div>
+            <button type="submit">Car Price</button>
+            
+        </form>
+        <br>
+        <h3>{{ prediction_text }}<h3>
+    </div>
+
+    <style>
+        body {
+            background-color: black;
+            margin:0px;
+            padding: 0px;
+            color: white;
+        }
+        .container {
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .form{
+            display: flex;
+            background-color: rgba(74, 75, 74, 0.336);
+            align-items: center;
+            margin: 0px 150px 0px 150px;
+            padding: 50px;
+            justify-content: space-around;
+        }
+        
+        h2{
+            color: white;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            margin-top: 10px;
+           
+        }
+        h6{
+            color: grey;
+        }
+       
+        input{
+            margin-left: 20px;
+        }
+        select{
+            margin-left: 20px;
+        }
+        button{
+            background-color: rgba(255, 0, 0, 0.84);
+            border-radius: 4px;
+            border: none;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 80px;
+            height: 25px;
+            margin-top: -50px;
+            margin-left: 48%;
+            position: absolute;
+        }
+        button:hover {
+            background-color: blue;
+        }
+       h3{
+            color: white;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+       }
+       
+       
+    </style>
+    <script>
+        const model = ['maruti wagon', 'hyundai creta', 'honda jazz', 'maruti ertiga', 'audi a4',
+            'nissan micra', 'toyota innova', 'volkswagen vento', 'tata indica',
+            'maruti ciaz', 'honda city', 'maruti swift', 'mitsubishi pajero',
+            'honda amaze', 'renault duster', 'bmw 3', 'audi a6', 'hyundai i20',
+            'maruti alto', 'toyota corolla', 'mahindra ssangyong', 'maruti vitara',
+            'mahindra kuv', 'volkswagen polo', 'hyundai elantra', 'hyundai xcent',
+            'hyundai grand', 'renault kwid', 'hyundai i10', 'maruti zen', 'ford figo',
+            'mercedes-benz new', 'mahindra xuv500', 'nissan terrano', 'honda brio',
+            'ford fiesta', 'tata zest', 'maruti ritz', 'bmw 5', 'hyundai santro',
+            'toyota fortuner', 'ford ecosport', 'hyundai verna', 'maruti omni',
+            'toyota etios', 'maruti eeco', 'honda civic', 'mercedes-benz b',
+            'mahindra scorpio', 'honda cr-v', 'chevrolet beat', 'skoda rapid',
+            'skoda superb', 'hyundai eon', 'chevrolet optra', 'maruti baleno',
+            'skoda laura', 'skoda fabia', 'tata indigo', 'audi q3', 'skoda octavia',
+            'hyundai santa', 'bmw x1', 'hyundai accent', 'maruti a-star',
+            'volkswagen jetta', 'mercedes-benz gla', 'maruti celerio', 'honda accord',
+            'tata manza', 'chevrolet spark', 'mahindra bolero', 'maruti sx4',
+            'honda mobilio', 'mercedes-benz e-class', 'fiat linea', 'jeep compass',
+            'ford ikon', 'chevrolet aveo', 'mahindra xylo', 'nissan sunny', 'land rover',
+            'maruti dzire', 'chevrolet cruze', 'volkswagen ameo', 'tata tiago',
+            'hyundai getz', 'hyundai elite', 'ford endeavour'];
+        model.map((item) => {
+            const name = document.getElementById('model');
+            const Item = item.toUpperCase();
+            name.innerHTML += `<option value="${item}">${Item}</option>`
+        });
+        const company = ['maruti', 'hyundai', 'honda', 'audi', 'nissan', 'toyota',
+            'volkswagen', 'tata', 'mitsubishi', 'renault', 'bmw', 'mahindra',
+            'ford', 'mercedes-benz', 'chevrolet', 'skoda', 'fiat', 'jeep',
+            'land'];
+        company.map((item) => {
+            console.log(item);
+            const name = document.getElementById('company');
+            const Item = item.toUpperCase();
+            name.innerHTML += `<option value="${item}">${Item}</option>`
+        });
+        const locations = ['Mumbai', 'Pune', 'Chennai', 'Coimbatore', 'Jaipur', 'Kochi',
+            'Kolkata', 'Delhi', 'Hyderabad', 'Bangalore', 'Ahmedabad'];
+        locations.map((item) => {
+            const name = document.getElementById('location');
+            const Item = item.toUpperCase();
+            name.innerHTML += `<option value="${item}">${Item}</option>`
+        });
+    </script>
+</body>
+
+</html>
