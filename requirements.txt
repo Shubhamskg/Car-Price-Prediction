@@ -9,6 +9,7 @@ joblib
 jsonify
 MarkupSafe
 numpy
+pandas
 requests
 scikit-learn
 scipy
